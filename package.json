@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudflare/d1": "^1.4.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
@@ -18,5 +19,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "vercel": "^28.5.6"
   }
 }
