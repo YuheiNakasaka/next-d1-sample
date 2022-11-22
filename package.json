@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "custom-build": "npx @cloudflare/next-on-pages --experimental-minify"
   },
   "dependencies": {
     "@cloudflare/d1": "^1.4.1",
+    "@cloudflare/next-on-pages": "github:YuheiNakasaka/next-on-pages#feature/add-env-to-functions",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",

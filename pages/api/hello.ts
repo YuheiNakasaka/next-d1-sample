@@ -14,7 +14,6 @@ export default async function (req: NextRequest, env: Env) {
     JSON.stringify({
       req: JSON.stringify(req),
       env: JSON.stringify(env),
-      db: JSON.stringify(env.DB),
     }),
     {
       status: 200,
