@@ -9,11 +9,14 @@ export interface Env {
   DB: Database;
 }
 
-export default async function (req: any, env: any) {
+export default async function (req: NextRequest, env: Env) {
+  const db = env.DB;
   return new Response(
     JSON.stringify({
       req: JSON.stringify(req),
       env: JSON.stringify(env),
+      db: db ? JSON.stringify(db) : "none",
+      penv: JSON.stringify(process.env),
     }),
     {
       status: 200,
