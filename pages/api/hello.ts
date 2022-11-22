@@ -10,12 +10,11 @@ export interface Env {
 }
 
 export default async function (req: NextRequest, env: Env) {
-  const db = await env.DB;
   return new Response(
     JSON.stringify({
       req: JSON.stringify(req),
       env: JSON.stringify(env),
-      db: JSON.stringify(db),
+      db: JSON.stringify(env.DB),
     }),
     {
       status: 200,
