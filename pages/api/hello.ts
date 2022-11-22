@@ -9,12 +9,11 @@ export interface Env {
   DB: Database;
 }
 
-export default async function (req: NextRequest, env: Env) {
+export default async function (req: any, env: any) {
   return new Response(
     JSON.stringify({
       req: JSON.stringify(req),
       env: JSON.stringify(env),
-      penv: JSON.stringify(process.env),
     }),
     {
       status: 200,
