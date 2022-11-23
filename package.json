@@ -25,6 +25,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "github:YuheiNakasaka/next-on-pages#feature/add-env-to-functions",
     "@cloudflare/workers-types": "^4.20221111.1",
+    "better-sqlite3": "^7.6.2",
     "vercel": "^28.5.6",
     "wrangler": "^2.4.2"
   }
