@@ -11,11 +11,11 @@ export interface Env {
 
 type CfNextRequest = NextRequest & { env: any };
 
-export default async function (req: CfNextRequest) {
+export default async function (req: CfNextRequest, env: Env) {
   return new Response(
     JSON.stringify({
       req: JSON.stringify(req),
-      env: JSON.stringify(req.env),
+      env: JSON.stringify(env),
       processEnv: JSON.stringify(process.env),
     }),
     {
