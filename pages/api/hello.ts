@@ -16,6 +16,7 @@ export default async function (req: CfNextRequest) {
     JSON.stringify({
       req: JSON.stringify(req),
       env: JSON.stringify(req.env),
+      processEnv: JSON.stringify(process.env),
     }),
     {
       status: 200,
