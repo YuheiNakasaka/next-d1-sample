@@ -12,10 +12,16 @@ export interface Env {
 type CfNextRequest = NextRequest & { env: any };
 
 export default async function (req: CfNextRequest, env: Env) {
+  const { results } = await env.DB.prepare(
+    "SELECT * FROM Customers WHERE CompanyName = ?"
+  )
+    .bind("Bs Beverages")
+    .all();
   return new Response(
     JSON.stringify({
       req: JSON.stringify(req),
       env: JSON.stringify(env),
+      results: JSON.stringify(results),
       processEnv: JSON.stringify(process.env),
     }),
     {
