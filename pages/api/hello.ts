@@ -12,7 +12,7 @@ export interface Env {
 type CfNextRequest = NextRequest & { env: any };
 
 export default async function (req: CfNextRequest, env: Env) {
-  const { results } = await env.DB.prepare(
+  const { results } = await (process.env as any).DB.prepare(
     "SELECT * FROM Customers WHERE CompanyName = ?"
   )
     .bind("Bs Beverages")
