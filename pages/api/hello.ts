@@ -4,7 +4,7 @@ import type { Database } from "@cloudflare/d1";
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      DB: Database;
+      __D1_BETA__DB: Database;
     }
   }
 }
@@ -14,16 +14,15 @@ export const config = {
 };
 
 export interface Env {
-  DB: Database;
+  __D1_BETA__DB: Database;
 }
 
 type CfNextRequest = NextRequest & { env: any };
 
 export default async function (req: CfNextRequest) {
   try {
-    const { results } = await process.env.DB.prepare(
-      "SELECT * FROM Customers WHERE CompanyName = ?"
-    )
+    const { results } = await process.env.__D1_BETA__DB
+      .prepare("SELECT * FROM Customers WHERE CompanyName = ?")
       .bind("Bs Beverages")
       .all();
     return new Response(
